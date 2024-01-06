@@ -321,8 +321,13 @@ function selectMany(arr, childrenSelector) {
  *   calculateBalance([ [ 10, 8 ], [ 1, 5 ] ])  => (10 - 8) + (1 - 5) = 2 + -4 = -2
  *   calculateBalance([]) => 0
  */
-function calculateBalance(/* arr */) {
-  throw new Error('Not implemented');
+function calculateBalance(arr) {
+  const destructured = arr.map(([income, expense]) => ({ income, expense }));
+  const result = destructured.reduce(
+    (acc, { income, expense }) => acc + (income - expense),
+    0
+  );
+  return result;
 }
 
 /**
